@@ -22,6 +22,7 @@ public class Checklist extends Auditable {
 	private Long cardId;
 	private String title;
 	private String item;
+	private Byte checked = 0;
 	private Integer position;
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -51,6 +52,14 @@ public class Checklist extends Auditable {
 
 	public void setItem(String item) {
 		this.item = item;
+	}
+
+	public Byte getChecked() {
+		return checked;
+	}
+
+	public void setChecked(Byte checked) {
+		this.checked = checked;
 	}
 
 	public Integer getPosition() {
