@@ -55,6 +55,13 @@ public class ChecklistController extends Auditable {
 		checklistRepository.deleteAll(checklists);
 	}
 	
+	@RequestMapping(value = "{id}/{checked}", method = RequestMethod.POST)
+	public Checklist checkOrUnchecked(@PathVariable Long id, @PathVariable Byte checked) {
+		Checklist checklist = checklistRepository.getOne(id);
+		checklist.setChecked(checked);
+		return checklistRepository.saveAndFlush(checklist);
+	}
+	
 }
 
 
